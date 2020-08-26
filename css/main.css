@@ -1,0 +1,50 @@
+@keyframes colorise {
+  from {
+    background-color: white; }
+  to {
+    background-color: black; } }
+header, footer {
+  padding: 10px;
+  animation-name: slideInDown;
+  animation-duration: 20s; }
+
+footer {
+  animation-name: slideInUp;
+  animation-duration: 20s; }
+
+body, html {
+  background-color: black; }
+
+.margin {
+  margin-top: 25%;
+  margin-bottom: 25%; }
+
+#body {
+  animation-name: colorise;
+  animation-duration: 9s;
+  background-color: black; }
+
+#bCreate {
+  width: 300px;
+  height: 100px;
+  font-size: 40px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  animation-duration: 9s;
+  transition-duration: 6s;
+  background-color: transparent;
+  color: green;
+  margin-left: 30%; }
+
+#bCreate:hover {
+  border-color: black;
+  color: white;
+  border-radius: 50%;
+  border-style: dashed;
+  text-shadow: 2px 2px green;
+  background-size: 80%; }
+
+#bCreate p:hover {
+  animation-name: tada;
+  animation-duration: 1s; }
+
+/*# sourceMappingURL=main.css.map */
