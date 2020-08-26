@@ -2,72 +2,23 @@
 let bCreate = document.getElementById("bCreate");
 gocreate=()=>{location.href="pcc.html"}
 
-
-
-// if(document.getElementsByClassName("removeWorkExp")){
-//     let removeWorkExp = document.getElementsByClassName("removeWorkExp");
-// }
-
-// //Skills
-
-
-
-// //=============================================================//
-// //AddWork
-// 
-// addWorkExp.addEventListener("click", ()=>{
-
-
-
-
-//     //TEMPLATE//
-
-
-// newWorkExp.innerHTML+=template;
-// if(fCompany != "" || fJob != ""){
-//     workExperienceSection.appendChild(newWorkExp);
-//     company.value = "";
-//     job.value = "";
-//     since.value = "";
-//     until.value = "";
-//     // listenRemove(newWorkExp,id);
-// }
-// })
-// //============================================================//
-// //RemoveWork
-
-// // listenRemove=(element, id)=>{
-// //     if(document.getElementsByClassName("removeWorkExp")[id]){
-// //         removeWorkExp.addEventListener("click", ()=>{
-// //             workExperienceSection.removeChild(element);
-// //         })
-// //     }
-// // }
-
-// //============================================================//
-// //AddSkill
-
-   
-
-
-
-
-// })
-
-// //============================================================//
-// //CreatePCC
-// let createpcc = document.getElementById("createpcc");
-// createpcc.addEventListener("click", ()=>{
-   
-
-
-
-
-// })
-
+    //Sections
 let personalDataSection = document.getElementById("personalDataSection");
 let workExperienceSection = document.getElementById("workExperienceSection");
 let skillsSection = document.getElementById("skillsSection");
+
+    //Buttons
+let addWorkExp = document.getElementById("addWorkExp");
+let addSkill = document.getElementById("addSkill");
+
+let newObj = [];
+let ID = 0;
+
+let newObj2 = [];
+let ID2 = 0;
+
+//===============================================================//
+
 
 class PersonalData{
     constructor(){ 
@@ -78,56 +29,74 @@ class PersonalData{
 
 }
 
+//==============================================================//
+
 class WorkExp{
-    constructor(){
+    constructor(id){
         
         this.company = document.getElementById("company");
         this.job = document.getElementById("job");
         this.since = document.getElementById("since");
         this.until = document.getElementById("until");
-        
-        this.newDiv = [];
+       
+        this.id = id;
 
-
-    }
-
-
-
-    newWorkExp(){
 
         //TEMPLATE//
         let template =`
-            <b>Company:</b> ${company.value} <b>Job:</b> ${job.value} <b>Since:</b> ${since.value} <b>Until:</b> ${until.value} <button onclick="workexp.removeWorkExp();" id="removeWorkExp" class="button removeWorkExp">✖</button>
-        <br>`;
+            <b>Company:</b> ${company.value} <b>Job:</b> ${job.value} <b>Since:</b> ${since.value} <b>Until:</b> ${until.value}`;
 
-        this.id = this.newDiv.push(document.createElement("div") );
+        this.newDiv = document.createElement("div");
 
-        
+        workExperienceSection.appendChild(this.newDiv);
+        this.newDiv.innerHTML+=template;
+        this.newDiv.classList.add("container", "newDiv", "newwork-"+id);
 
-        workExperienceSection.appendChild(this.newDiv[this.id-1]);
-        this.newDiv[this.id-1].innerHTML+=template;
-        this.newDiv[this.id-1].classList.add("container", "newDiv");
+        this.newButton = document.createElement("button");
+        this.newDiv.appendChild(this.newButton);
+        this.newButton.innerHTML="✖";
+        this.newButton.classList.add("button", "removeWorkExp");
+        this.newButton.setAttribute("id", "removeWorkExp");
 
-        console.log(this.id +" "+ this.newDiv[this.id-1]);
+        this.newButton.addEventListener("click", () => {
+            this.removeWorkExp();
+        })
+
     }
 
+
     removeWorkExp(){
-        
+        ID--;
+        workExperienceSection.removeChild(this.newDiv);
     }
 
 
 }
+//============//
+//AddWork//
+addWorkExp.addEventListener("click",()=>{
+    ID++;
+    newObj[ID] = new WorkExp(ID);
+
+})
+
+
+
+
+
+
+
+
+//================================================//
 
 class Skills{
-    constructor(){
+    constructor(id){
+        
         this.technology = document.getElementById("technology");
         this.level = document.getElementById("level");
-        this.newDiv = [];
+       
+        this.id = id;
 
-
-    }
-
-    newSkill(){
         if(level.value < 3){
             this.color = "gray";
         }
@@ -138,36 +107,58 @@ class Skills{
             this.color = "red";
         }
 
-
         //TEMPLATE//
         let template =`
         <b>Technology:</b> ${technology.value} <b>Level of Experience:</b> <b><span class=${this.color}>${level.value}</span></b> <button class="button removeSkill">✖</button>
         <br>`;
+
+        this.newDiv = document.createElement("div");
+
+        skillsSection.appendChild(this.newDiv);
+        this.newDiv.innerHTML+=template;
+        this.newDiv.classList.add("container", "newDiv");
+
+
+
+        this.newButton = document.createElement("button");
+        this.newDiv.appendChild(this.newButton);
+        this.newButton.innerHTML="✖";
+        this.newButton.classList.add("button", "removeWorkExp");
+        this.newButton.setAttribute("id", "removeWorkExp");
+
         
 
-        this.id = this.newDiv.push(document.createElement("div") );
-        skillsSection.appendChild(this.newDiv[this.id-1]);
-        this.newDiv[this.id-1].innerHTML+=template;
-        this.newDiv[this.id-1].classList.add("container", "newDiv");
-        
-        console.log(this.color);
+        this.newButton.addEventListener("click", () => {
+            this.removeSkill();
+        })
+
     }
+
+
+    removeSkill(){
+        ID--;
+        skillsSection.removeChild(this.newDiv);
+    }
+
+
 }
+//============//
+//AddSkill//
+addSkill.addEventListener("click",()=>{
+    ID2++;
+    newObj2[ID] = new Skills(ID2);
 
-skill = new Skills();
-workexp = new WorkExp();
-
-
-//==LISTENERS==//
-let addWorkExp = document.getElementById("addWorkExp");
-addWorkExp.addEventListener("click", ()=>{
-    
-    workexp.newWorkExp();
 })
 
-let addSkill = document.getElementById("addSkill");
-addSkill.addEventListener("click", ()=>{
-    
-    skill.newSkill();
-})
 
+
+//=====================
+//CreatePCC
+let createpcc = document.getElementById("createpcc");
+createpcc.addEventListener("click", ()=>{
+   
+
+
+
+
+})
