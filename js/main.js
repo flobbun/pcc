@@ -109,8 +109,7 @@ class Skills{
 
         //TEMPLATE//
         let template =`
-        <b>Technology:</b> ${technology.value} <b>Level of Experience:</b> <b><span class=${this.color}>${level.value}</span></b> <button class="button removeSkill">✖</button>
-        <br>`;
+        <b>Technology:</b> ${technology.value} <b>Level of Experience:</b> <b><span class=${this.color}>${level.value}</span></b>`;
 
         this.newDiv = document.createElement("div");
 
@@ -123,7 +122,7 @@ class Skills{
         this.newButton = document.createElement("button");
         this.newDiv.appendChild(this.newButton);
         this.newButton.innerHTML="✖";
-        this.newButton.classList.add("button", "removeWorkExp");
+        this.newButton.classList.add("button", "removeSkill");
         this.newButton.setAttribute("id", "removeWorkExp");
 
         
