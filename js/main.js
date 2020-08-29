@@ -1,3 +1,6 @@
+//Clean
+localStorage.clear();
+
 //Init Vars
 let bCreate = document.getElementById("bCreate");
 gocreate=()=>{location.href="pcc.html"}
@@ -22,12 +25,14 @@ let ID2 = 0;
 
 class PersonalData{
     constructor(){ 
-        name = document.getElementById("name");
-        email = document.getElementById("email");
-        number = document.getElementById("number");
+        this.name = document.getElementById("name");
+        this.email = document.getElementById("email");
+        this.number = document.getElementById("number");
+
     }
 
 }
+
 
 //==============================================================//
 
@@ -39,12 +44,16 @@ class WorkExp{
         this.since = document.getElementById("since");
         this.until = document.getElementById("until");
        
-        this.id = id;
+        this.vCompany = this.company.value;
+        this.vJob = this.job.value;
+        this.vSince = this.since.value;
+        this.vUntil = this.until.value;
 
+        this.id = id;
 
         //TEMPLATE//
         let template =`
-            <b>Company:</b> ${company.value} <b>Job:</b> ${job.value} <b>Since:</b> ${since.value} <b>Until:</b> ${until.value}`;
+            <b>Company:</b> ${this.vCompany} <b>Job:</b> ${this.vJob} <b>Since:</b> ${this.vSince} <b>Until:</b> ${this.vUntil}`;
 
         this.newDiv = document.createElement("div");
 
@@ -68,6 +77,8 @@ class WorkExp{
     removeWorkExp(){
         ID--;
         workExperienceSection.removeChild(this.newDiv);
+        newObj.pop();
+        delete this;
     }
 
 
@@ -77,14 +88,13 @@ class WorkExp{
 addWorkExp.addEventListener("click",()=>{
     ID++;
     newObj[ID] = new WorkExp(ID);
-
 })
 
 
 
 
 
-
+        
 
 
 //================================================//
@@ -94,6 +104,9 @@ class Skills{
         
         this.technology = document.getElementById("technology");
         this.level = document.getElementById("level");
+
+        this.vTechnology = this.technology.value;
+        this.vLevel = this.level.value;
        
         this.id = id;
 
@@ -109,7 +122,7 @@ class Skills{
 
         //TEMPLATE//
         let template =`
-        <b>Technology:</b> ${technology.value} <b>Level of Experience:</b> <b><span class=${this.color}>${level.value}</span></b>`;
+        <b>Technology:</b> ${this.vTechnology} <b>Level of Experience:</b> <b><span class=${this.color}>${this.vLevel}</span></b>`;
 
         this.newDiv = document.createElement("div");
 
@@ -135,8 +148,10 @@ class Skills{
 
 
     removeSkill(){
-        ID--;
+        ID2--;
         skillsSection.removeChild(this.newDiv);
+        newObj2.pop();
+        delete this;
     }
 
 
@@ -145,19 +160,85 @@ class Skills{
 //AddSkill//
 addSkill.addEventListener("click",()=>{
     ID2++;
-    newObj2[ID] = new Skills(ID2);
-
+    newObj2[ID2] = new Skills(ID2);
 })
 
 
 
-//=====================
-//CreatePCC
+//=======================================
+//==CreatePCC==//
+
 let createpcc = document.getElementById("createpcc");
 createpcc.addEventListener("click", ()=>{
-   
+
+    //===========GET DATA==========//
+
+    //PersonalData
+personalData = new PersonalData();
+let pName = personalData.name.value;
+let pEmail = personalData.email.value;
+let pNumber = personalData.number.value;
+
+    //WorkExp && Skills
+let pCompany = [], pJob = [], pSince = [], pUntil = [], pTechnology = [], pLevel = [];
+for (let i = 0; i < newObj.length; i++) {
+    
+    //=======
+    if(newObj[i]){
+        pCompany[i] = newObj[i].vCompany;
+        pJob[i] = newObj[i].vJob;
+        pSince[i] = newObj[i].vSince;
+        pUntil[i] = newObj[i].vUntil;
 
 
+        
+        console.log(i+" loop working "+newObj[i]  );
+    }
+    else{
+        console.log("not found")
+    }
 
+    //=======
+    if(newObj2[i]){
+        pTechnology[i] = newObj2[i].vTechnology;
+        pLevel[i] = newObj2[i].vLevel;
+
+        console.log(i+" loop working "+newObj2[i]  );
+    }
+    else{
+        console.log("not found")
+    }
+    
+    localStorage.setItem('nWorkExp', JSON.stringify(newObj.length))
+    localStorage.setItem('nSkills', JSON.stringify(newObj2.length))
+
+    localStorage.setItem('company', JSON.stringify(pCompany));
+    localStorage.setItem('job', JSON.stringify(pJob));
+    localStorage.setItem('since', JSON.stringify(pSince));
+    localStorage.setItem('until', JSON.stringify(pUntil));
+
+    localStorage.setItem('technology', JSON.stringify(pTechnology));
+    localStorage.setItem('level', JSON.stringify(pLevel));
+}
+
+//=====================================================================//
+
+//If you are asking yourself why am I using two diffrent ways to transfer data from one page to another
+//the answer is because I'm learning :v
+
+    //Go
+transferData("print.html", "pName,pEmail,pNumber");
+
+function transferData(page, vars) {
+    page +="?";
+    nomVec = vars.split(",");
+    for (i=0; i<nomVec.length; i++)
+    page += nomVec[i] + "=" + escape(eval(nomVec[i]))+"&";
+    page = page.substring(0,page.length-1);
+    location.href=page;
+  }
+
+
+  
 
 })

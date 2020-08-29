@@ -1,0 +1,24 @@
+body {
+  background-color: #222; }
+
+#mainSection li {
+  margin: 1%;
+  list-style: none;
+  padding: 1%; }
+#mainSection h1 {
+  text-align: center;
+  color: #222; }
+#mainSection .printDiv {
+  background-color: white;
+  color: #333;
+  font-family: "Russo One", sans-serif; }
+#mainSection .company {
+  text-transform: uppercase; }
+
+.separator {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.315);
+  margin: 2%; }
+
+/*# sourceMappingURL=print.css.map */
