@@ -161,6 +161,8 @@ class Skills{
 addSkill.addEventListener("click",()=>{
     ID2++;
     newObj2[ID2] = new Skills(ID2);
+
+    // alert(ID2+" "+newObj2[ID2] + " length> "+ newObj2.length)
 })
 
 
@@ -181,45 +183,41 @@ let pNumber = personalData.number.value;
 
     //WorkExp && Skills
 let pCompany = [], pJob = [], pSince = [], pUntil = [], pTechnology = [], pLevel = [];
+
 for (let i = 0; i < newObj.length; i++) {
     
-    //=======
     if(newObj[i]){
         pCompany[i] = newObj[i].vCompany;
         pJob[i] = newObj[i].vJob;
         pSince[i] = newObj[i].vSince;
         pUntil[i] = newObj[i].vUntil;
-
-
-        
-        console.log(i+" loop working "+newObj[i]  );
-    }
-    else{
-        console.log("not found")
     }
 
-    //=======
-    if(newObj2[i]){
-        pTechnology[i] = newObj2[i].vTechnology;
-        pLevel[i] = newObj2[i].vLevel;
-
-        console.log(i+" loop working "+newObj2[i]  );
-    }
-    else{
-        console.log("not found")
-    }
-    
-    localStorage.setItem('nWorkExp', JSON.stringify(newObj.length))
-    localStorage.setItem('nSkills', JSON.stringify(newObj2.length))
-
+    localStorage.setItem('nWorkExp', JSON.stringify(newObj.length));
     localStorage.setItem('company', JSON.stringify(pCompany));
     localStorage.setItem('job', JSON.stringify(pJob));
     localStorage.setItem('since', JSON.stringify(pSince));
     localStorage.setItem('until', JSON.stringify(pUntil));
 
+}
+
+for (let i = 0; i < newObj2.length; i++) {
+
+    if(newObj2[i]){
+        pTechnology[i] = newObj2[i].vTechnology;
+        pLevel[i] = newObj2[i].vLevel;
+            
+    localStorage.setItem('nSkills', JSON.stringify(newObj2.length))
     localStorage.setItem('technology', JSON.stringify(pTechnology));
     localStorage.setItem('level', JSON.stringify(pLevel));
+    }
+
 }
+
+
+    
+
+
 
 //=====================================================================//
 
