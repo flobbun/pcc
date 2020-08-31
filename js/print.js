@@ -38,6 +38,7 @@ for (i=0; i<arrVariables.length; i++)
 //The user didn't give any info
 if(!pName && !pNumber && nWorkExp < 1 && nSkills < 1){
   print = false;
+  document.body.style.backgroundColor="#222";
   mainSection.innerHTML+=`<div class="container"><h1 class="text-center text-light">Hey!<br> What are you doing?<br><br> <b><a href="index.html">Create something!</a></b></h1></div>`;
 }else{print = true;}
 

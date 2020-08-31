@@ -90,6 +90,10 @@ class WorkExp{
 addWorkExp.addEventListener("click",()=>{
     ID++;
     newObj[ID] = new WorkExp(ID);
+    company.value = "";
+    job.value = "";
+    since.value = 0;
+    until.value = 0;
 })
 
 
@@ -164,7 +168,7 @@ addSkill.addEventListener("click",()=>{
     ID2++;
     newObj2[ID2] = new Skills(ID2);
     level.value = 1;
-
+    technology.value = "";
 })
 
 let lvl = document.getElementById("lvl-value");
