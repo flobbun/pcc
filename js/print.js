@@ -1,6 +1,6 @@
 //Vars//
 mainSection = document.getElementById("mainSection");
-
+let print = false;
 
     //Receiving from localstorage
 
@@ -34,9 +34,65 @@ for (i=0; i<arrVariables.length; i++)
   }
     
 }
+//==================================================//
+//The user didn't give any info
+if(!pName && !pNumber && nWorkExp < 1 && nSkills < 1){
+  print = false;
+  mainSection.innerHTML+=`<div class="container"><h1 class="text-center text-light">Hey!<br> What are you doing?<br><br> <b><a href="index.html">Create something!</a></b></h1></div>`;
+}else{print = true;}
 
-//=============================================//
-// alert(nSkills);
+//==================================================//
+//===============THEME SYSTEM======================//
+if(print){
+  let tmpDiv = `
+<div class="container p-4">
+  <div class="list-group">
+  <h3 class="text-center">Choose a theme!</h3>
+  <a href="#" title="classic" onclick="choose(this.title)" class="list-group-item list-group-item-action">→ Classic theme</a>
+  <a href="#" title="hacker" onclick="choose(this.title)" class="list-group-item list-group-item-action">→ Hacker theme</a>
+  <a href="#" title="blue" onclick="choose(this.title)" class="list-group-item list-group-item-action">→ Blue theme</a>
+  <a href="#" title="fancy" onclick="choose(this.title)" class="list-group-item list-group-item-action">→ Fancy theme</a>
+</div>
+</div>`;
+let themeDiv = document.createElement("div");
+themeDiv.classList.add("themeDiv");
+themeDiv.innerHTML=tmpDiv;
+mainSection.appendChild(themeDiv);
+themeDiv.focus();
+
+choose=(title)=>{
+
+  switch (title) {
+    case "classic":
+      mainSection.classList.add("theme-classic");
+      document.body.style.backgroundColor="#222";
+      break;
+
+    case "hacker":
+      mainSection.classList.add("theme-hacker");
+      document.body.style.backgroundColor="#111";
+      document.body.style.backgroundImage = "url('https://i.ytimg.com/vi/D_OPcPXlI7g/maxresdefault.jpg')";   
+
+      break;
+    case "blue":
+      mainSection.classList.add("theme-blue");
+      document.body.style.backgroundColor="#222";
+      break;
+
+    case "fancy":
+      mainSection.classList.add("theme-fancy");
+      document.body.style.backgroundColor="#333";
+      break;
+
+  }
+  mainSection.removeChild(themeDiv);
+  
+}
+
+
+
+
+}
 
 //==================================================//
 
@@ -59,6 +115,7 @@ if(pName || pNumber){
   </div>`;
   
 }
+//==================================================//
 
 
 let workExp = document.createElement("div");
@@ -98,7 +155,7 @@ Skills.classList.add("printDiv");
 
 if(technology){
 
-  Skills.innerHTML+=`<div class="row justify-content-center text-center"><h2 class='p-2 m-2 text-center'><i class="fas fa-laptop-code"></i> Skills</h2></div>`;
+  Skills.innerHTML+=`<div class="m-2 row justify-content-center text-center"><h2 class='p-2 m-2 text-center'><i class="fas fa-laptop-code"></i> Skills</h2></div>`;
   
     for (let i = 0;  i < JSON.parse(nSkills); i++) {
       if(JSON.parse(technology)[i] !== null)
@@ -123,10 +180,7 @@ if(technology){
 
 
 
-//The user didn't give any info
-if(!pName && !pNumber && nWorkExp < 1 && nSkills < 1){
-  mainSection.innerHTML+=`<div class="container"><h1 class="text-center text-light">Hey!<br> What are you doing?<br><br> <b><a href="index.html">Create something!</a></b></h1></div>`;
-}
+
 
 
 //======================================//

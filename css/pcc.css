@@ -18,50 +18,51 @@ body {
   font-family: "'Oswald', sans-serif;";
   padding: 1%;
   margin: 2%;
-  background-color: rgba(255, 255, 255, 0.219); }
+  background-color: rgba(255, 255, 255, 0.219);
+  box-sizing: border-box; }
   #mainSection h6 {
-    font-size: 20px; }
+    font-size: 24px; }
   #mainSection input {
     padding: 1%;
     margin-bottom: 2%;
-    width: 30%;
     text-align: center;
     border-radius: 10px;
     border-style: none; }
+  #mainSection #lb-since, #mainSection #lb-until {
+    width: 60px; }
+  #mainSection #personalDataSection input {
+    width: 30%; }
   #mainSection #workExperienceSection {
-    margin-left: auto;
-    margin-right: auto;
     padding: 1%; }
     #mainSection #workExperienceSection input {
-      width: 14%;
-      margin: 2%; }
+      width: 100%;
+      height: 100%; }
     #mainSection #workExperienceSection label {
+      font-size: 24px;
       color: white;
-      height: 30px;
-      margin: 2%; }
+      height: 30px; }
+    #mainSection #workExperienceSection div {
+      padding: 1%; }
   #mainSection #skillsSection {
+    box-sizing: border-box;
     padding: 1%;
-    font-family: "'Oswald', sans-serif;";
-    margin-left: auto;
-    margin-right: auto; }
-    #mainSection #skillsSection #technology {
-      width: 200px; }
+    font-family: "'Oswald', sans-serif;"; }
     #mainSection #skillsSection input {
-      margin-right: 10px; }
+      width: 100%;
+      height: 100%; }
     #mainSection #skillsSection #range {
       background-color: white;
-      width: 200px;
       border-radius: 10px;
-      justify-content: center;
       padding-top: 1%;
-      transition-duration: 0.5s;
-      margin-bottom: 2%; }
-      #mainSection #skillsSection #range #level {
-        width: 120px; }
+      padding-bottom: 1%;
+      transition-duration: 0.5s; }
     #mainSection #skillsSection #range:hover {
       background-color: transparent;
       color: white;
       transform: scale(1.05); }
+    #mainSection #skillsSection #lvl-value {
+      position: absolute;
+      margin: -10px; }
   #mainSection .button {
     border-style: none;
     margin: 2%;
@@ -123,6 +124,15 @@ body {
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.109);
   padding: 1%;
+  color: gray; }
+
+.cred {
+  color: red; }
+
+.cblue {
+  color: blue; }
+
+.cgray {
   color: gray; }
 
 .separator {

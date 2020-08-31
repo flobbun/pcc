@@ -1,13 +1,14 @@
 $color1: #222; 
 $color2: #333; 
+$color3: #149414;
 $border: 10px;
 $margin: 1%;
 $padding: 1%;
 $font1: 'Russo One', sans-serif;
+$font2: 'Oswald', sans-serif;
 
-body{
-    background-color: $color1;
-}
+
+//===========================//
 
 #mainSection{
     li{
@@ -18,13 +19,7 @@ body{
     
     h1{
         text-align: center;
-        color: $color1;
-    }
-
-    .printDiv{
-        background-color: white;
-        color: $color2;
-        font-family: $font1;
+        
     }
 
     .company{text-transform: uppercase;}
@@ -33,13 +28,83 @@ body{
 
 }
 
+//===========================//
+.themeDiv{
+    font-family: $font1;
+    border-radius: 4px;
+    width: 80%;
+    height: auto;
+    color: white;
+    position: fixed;
+
+    background-color: #333;
+    z-index: 100;
+
+    a{transition-duration: 0.5s;}
+    a:hover{
+        color: white;
+        background-color: #333;
+    }
+
+}
+//===========================//
 
 
 .separator {
     width: 100%;
     height: 1px;
-    background-color: rgba(0, 0, 0, 0.315);
     margin: 2%; 
 }
 
 
+
+//======================================================================//
+//========================THEMES========================================//
+
+.theme-classic{
+
+    h1{
+        color: $color1;
+    }
+    
+    .printDiv{
+        background-color: white;
+        color: $color2;
+        font-family: $font1;
+    }
+
+    .separator {
+        background-color: rgba(0, 0, 0, 0.315);
+    }
+}
+.theme-hacker{
+    
+    h1{
+        font-family: $font1;
+    }
+
+    .printDiv{
+        background-color: $color1;
+        color: $color3;
+        font-family: $font2;
+    }
+}
+.theme-blue{
+    h1,h2{
+        font-family: $font1;
+        color: white;
+    }
+
+    .printDiv{
+        font-size: 20px;
+        background-color: #111;
+        color: rgb(12, 12, 150);
+        font-family: $font2;
+    }
+
+    .separator{
+        background-color: #222;
+    }
+}
+.theme-fancy{
+}

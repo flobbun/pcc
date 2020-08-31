@@ -13,82 +13,135 @@
     <!--FONTS-->
     <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Russo+One&display=swap" rel="stylesheet">
 </head>
+<!------------------------------------------------------------------------------------------>
+
 <body>
-    <div class="container text-center">
-        <header>
-            <h1>Programmer Curriculum Creator <i class="fas fa-laptop-code"></i></h1>
-        </header>
-    </div>
+    <div id="superContainer" class="container col-lg-12">
 
-    <div id="mainSection" class="animate__animated animate__slideInDown container text-center col-lg-12">
-        <section class="center">
+        <div class="container text-center">
+            <header>
+                <h1>Programmer Curriculum Creator <i class="fas fa-laptop-code"></i></h1>
+            </header>
+        </div>
 
-                <h6 class="text-light">Personal Data</h6>
+<!------------------------------------------------------------------------------------------>
 
-                <div id="personalDataSection" class="container col-lg-12">
-                    <input type="text" id="name" placeholder="FULLNAME">
-                    <input type="email" id="email" placeholder="EMAIL">
-                    <input type="number" id="number" placeholder="PHONE NUMBER">
-                </div>
+    
+        <div id="mainSection" class="animate__animated animate__slideInDown container text-center col-lg-12">
+            <section class="center">
+    
+                    <h6 class="text-light">Personal Data</h6>
+    
+                    <div id="personalDataSection" class="container col-lg-12">
+                        <input type="text" id="name" placeholder="FULLNAME">
+                        <input type="email" id="email" placeholder="EMAIL">
+                        <input type="number" id="number" placeholder="PHONE NUMBER">
+                    </div>
+    
+                    <div class="separator">-</div>
+    
+                    <h6 class="text-light">Work Experience</h6>
+    
+                    <div id="workExperienceSection">   
 
-                <div class="separator">-</div>
+    
 
-                <h6 class="text-light">Work Experience</h6>
+                        <div class="row justify-content-center">
+                            <div class="col-md-2">
+                                <input  type="text" id="company" placeholder="COMPANY NAME">
+                            </div>
+                            <div class="col-md-2">
+                                <input  type="text" id="job" placeholder="JOB">  
+                            </div>
+                            <div class="col-md-1">
+                                <label id="lb-since" for="since">SINCE</label> 
+                            </div>
+                            <div class="col-md-2">
+                                <input  type="date" id="since" name="since">
+                            </div>
+                            <div class="col-md-1">
+                                <label id="lb-until" for="until">UNTIL</label> 
+                            </div>
+                            <div class="col-md-2">
+                                <input  type="date" id="until" name="until">
+                            </div>
+                            <div class="col-md-2">
+                                <button id="addWorkExp" class="button">✚</button>    
+                            </div>
+                          </div>
 
-                <div id="workExperienceSection" class="row col-lg-12 col-md-12 col-sm-8">   
-                    <input type="text" id="company" placeholder="COMPANY NAME">
-                    <input type="text" id="job" placeholder="JOB">  
-                    <label for="since">SINCE</label> <input type="date" id="since" name="since">
-                    <label for="until">UNTIL</label> <input type="date" id="until" name="until">
-                    <button id="addWorkExp" class="button">✚</button>
-                </div>
-                <div class="separator">-</div>
+      
+                        
+                    </div>
+                    
+                    <div class="separator">-</div>
+    
+<!------------------------------------------------------------------------------------------>
 
-                <h6 class="text-light">Skills</h6>
+                    <h6 class="text-light">Skills</h6>
+    
+                    <div id="skillsSection" class="row justify-content-center">   
 
-                <div id="skillsSection" class="row col-lg-12 col-md-12 col-sm-8 justify-content-center">   
-                    <div class="row col-lg-6">
+
+                        <div class="col-md-4 mb-2">
                         <input list="techs" type="text" id="technology" placeholder="TECHNOLOGY NAME">
-                        <datalist id="techs">
-                            <option value="Python"><option value="Ruby"></option>
-                            <option value="Java"><option value="GO"></option>
-                            <option value="PHP"><option value="C"></option>
-                            <option value="C++"><option value="Laravel"></option>
-                            <option value="C#"><option value="Angular"></option>
-                                
-                                
-                          </datalist>
 
-                        <div class="container" id="range">
+                        </div>
+
+                        <div id="range" class="col-md-4 col-sm-10">
                             <label for="level">
                                 <b>Level of Experience</b>
                                 Value between 1 and 10
                             </label>
-                            <input type="range" max="10" min="1" value="1" id="level" name="level">
+                            <div>
+                                <input type="range" max="10" min="1" value="1" id="level" name="level">
+                                <div id="lvl-value" class="justify-content-center col-md-12"> </div>
+                            </div>
                         </div>
 
-                        <button id="addSkill" class="button">✚</button>
+                        <div class="col-md-2">
+                            <button id="addSkill" class="button">✚</button>
+                        </div>
                     </div>
-                </div>
+    
 
-                <div class="separator">-</div>
 
-                <button id="createpcc"> CREATE PCC </button>
 
-           
-            
-            
-           
-            
-        </section>
+
+                    <div class="separator">-</div>
+    
+                    <button id="createpcc"> CREATE PCC </button>
+    
+               
+                
+                
+               
+                
+            </section>
+        </div>
+    
+<!------------------------------------------------------------------------------------------>
+
+        <div class="container text-center">
+            <footer>
+                <h5>Programmer Curriculum Creator - DevWeb: Jhon Aguiar <i class="fas fa-laptop-code"></i></h5>
+            </footer>
+        </div>
+
     </div>
 
 
-    <div class="container text-center">
-        <footer>
-            <h5>Programmer Curriculum Creator - DevWeb: Jhon Aguiar <i class="fas fa-laptop-code"></i></h5>
-        </footer>
-    </div>
+
+
+    <!---Datalist-->
+    <datalist id="techs">
+        <option value="Python"><option value="Ruby"></option>
+        <option value="Java"><option value="GO"></option>
+        <option value="PHP"><option value="C"></option>
+        <option value="C++"><option value="Laravel"></option>
+        <option value="C#"><option value="Angular"></option>
+      </datalist>
+
 
     <script src="https://kit.fontawesome.com/9511a3216e.js" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>

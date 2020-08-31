@@ -1,16 +1,17 @@
 $font1: "'Russo One', sans-serif";
 $font2: "'Oswald', sans-serif;";
 $color1: #149414;
+$width-input: 30%;
 $radius: 10px;
 $padding: 1%;
 $separation: 2%;
-
+//===============================//
 .center{
     margin-left: auto;
     margin-right: auto;
 }
 
-
+//===============================//
 header{
     font-family: $font1;
     color: $color1;
@@ -19,81 +20,95 @@ header{
     padding: $padding;
     margin-bottom: $separation;
 }
-
+//===============================//
 body{
     background-image: url('https://i.ytimg.com/vi/D_OPcPXlI7g/maxresdefault.jpg');
     background-size: 80%;
 }
-
+ //===============================//
 #mainSection{
     font-family: $font2;
     padding: $padding;
     margin: $separation;
     background-color: rgba(255, 255, 255, 0.219);
-    
+    box-sizing: border-box;
+
 
     h6{
-        font-size: 20px;
+        font-size: 24px;
     }
 
     input{
         padding: $padding;
         margin-bottom: $separation;
-        width: 30%;
         text-align: center;
         border-radius: $radius;
         border-style: none;
     }
 
-    #workExperienceSection{
-        margin-left: auto;
-        margin-right: auto;
-        padding: $padding;
-        input{
-            width: 14%;
-            margin: $separation;
-
-        }label{
-            color: white;   
-            height: 30px;
-            margin: $separation;
-        }
-
+    #lb-since,#lb-until{
+        width: 60px;
     }
 
+
+
+    //===============================//
+    #personalDataSection{
+        input{
+            width: $width-input;
+        }
+    }
+    //===============================//
+
+
+    //===============================//
+    #workExperienceSection{
+
+        padding: $padding;
+        input{
+            width: 100%;
+            height: 100%;
+        }label{
+            font-size: 24px;
+            color: white;   
+            height: 30px;
+          
+        }
+        div{
+            padding: $padding;
+        }
+    }
+
+    //===============================//
     #skillsSection{
+        box-sizing: border-box;
         padding: $padding;
         font-family: $font2;
-        margin-left: auto;
-        margin-right: auto;
 
-        #technology{
-            width: 200px;
-           
-        }
         input{
-            margin-right: 10px;
+            width: 100%;
+            height: 100%;
         }
 
         #range{
-            background-color: white;
-            width: 200px;
+            background-color: white;            
             border-radius: $radius;
-            justify-content: center;
             padding-top: $padding;
+            padding-bottom: $padding;
             transition-duration: 0.5s;
-            margin-bottom: $separation;
-            #level{
-                width: 120px;
-            }
         }#range:hover{
             background-color: transparent;
             color: white;
             transform: scale(1.05);
         }
 
-    }
+        #lvl-value{
+            position: absolute;
+            margin: -10px;
+        }
 
+    }
+ //===============================//
     .button{
         border-style: none;
         margin: $separation;
@@ -165,6 +180,8 @@ body{
     color: gray;
 
 }
+
+.cred{color: red;}.cblue{color: blue;}.cgray{color: gray;}
 
 .separator{
     width: 100%;

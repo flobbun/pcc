@@ -20,6 +20,8 @@ let ID = 0;
 let newObj2 = [];
 let ID2 = 0;
 
+
+
 //===============================================================//
 
 
@@ -161,13 +163,34 @@ class Skills{
 addSkill.addEventListener("click",()=>{
     ID2++;
     newObj2[ID2] = new Skills(ID2);
+    level.value = 1;
 
-    // alert(ID2+" "+newObj2[ID2] + " length> "+ newObj2.length)
+})
+
+let lvl = document.getElementById("lvl-value");
+//========Show level==========//
+level.addEventListener("change",()=>{
+
+    
+if(level.value < 3){
+    lvl.classList.toggle("cgray")
+}
+if(level.value > 3 && level.value < 8){
+    lvl.classList.toggle("cblue")
+}
+if(level.value > 8){
+    lvl.classList.toggle("cred")
+}
+lvl.innerHTML= level.value;
+
+
 })
 
 
 
-//=======================================
+
+//==================================//
+
 //==CreatePCC==//
 
 let createpcc = document.getElementById("createpcc");

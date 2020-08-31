@@ -1,24 +1,57 @@
-body {
-  background-color: #222; }
-
 #mainSection li {
   margin: 1%;
   list-style: none;
   padding: 1%; }
 #mainSection h1 {
-  text-align: center;
-  color: #222; }
-#mainSection .printDiv {
-  background-color: white;
-  color: #333;
-  font-family: "Russo One", sans-serif; }
+  text-align: center; }
 #mainSection .company {
   text-transform: uppercase; }
+
+.themeDiv {
+  font-family: "Russo One", sans-serif;
+  border-radius: 4px;
+  width: 80%;
+  height: auto;
+  color: white;
+  position: fixed;
+  background-color: #333;
+  z-index: 100; }
+  .themeDiv a {
+    transition-duration: 0.5s; }
+  .themeDiv a:hover {
+    color: white;
+    background-color: #333; }
 
 .separator {
   width: 100%;
   height: 1px;
-  background-color: rgba(0, 0, 0, 0.315);
   margin: 2%; }
+
+.theme-classic h1 {
+  color: #222; }
+.theme-classic .printDiv {
+  background-color: white;
+  color: #333;
+  font-family: "Russo One", sans-serif; }
+.theme-classic .separator {
+  background-color: rgba(0, 0, 0, 0.315); }
+
+.theme-hacker h1 {
+  font-family: "Russo One", sans-serif; }
+.theme-hacker .printDiv {
+  background-color: #222;
+  color: #149414;
+  font-family: "Oswald", sans-serif; }
+
+.theme-blue h1, .theme-blue h2 {
+  font-family: "Russo One", sans-serif;
+  color: white; }
+.theme-blue .printDiv {
+  font-size: 20px;
+  background-color: #111;
+  color: #0c0c96;
+  font-family: "Oswald", sans-serif; }
+.theme-blue .separator {
+  background-color: #222; }
 
 /*# sourceMappingURL=print.css.map */
