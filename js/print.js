@@ -41,59 +41,76 @@ if(!pName && !pNumber && nWorkExp < 1 && nSkills < 1){
   document.body.style.backgroundColor="#222";
   mainSection.innerHTML+=`<div class="container"><h1 class="text-center text-light">Hey!<br> What are you doing?<br><br> <b><a href="index.html">Create something!</a></b></h1></div>`;
 }else{print = true;}
+//==================================================//
+//===============DOWNLOAD PDF======================//
+downloadpdf=()=>{
+window.print();
 
+}
 //==================================================//
 //===============THEME SYSTEM======================//
-if(print){
-  let tmpDiv = `
-<div class="container p-4">
-  <div class="list-group">
-  <h3 class="text-center">Choose a theme!</h3>
-  <a href="#" title="classic" onclick="choose(this.title)" class="list-group-item list-group-item-action">→ Classic theme</a>
-  <a href="#" title="hacker" onclick="choose(this.title)" class="list-group-item list-group-item-action">→ Hacker theme</a>
-  <a href="#" title="blue" onclick="choose(this.title)" class="list-group-item list-group-item-action">→ Blue theme</a>
-  <a href="#" title="fancy" onclick="choose(this.title)" class="list-group-item list-group-item-action">→ Fancy theme</a>
-</div>
-</div>`;
-let themeDiv = document.createElement("div");
-themeDiv.classList.add("themeDiv");
-themeDiv.innerHTML=tmpDiv;
-mainSection.appendChild(themeDiv);
-themeDiv.focus();
+chooseTheme=()=>{
+  if(print){
+    let tmpDiv = `
+  <div class="container p-4 animate__animated animate__backInDown">
+    <div class="list-group">
+    <h3 class="text-center">Choose a theme!</h3>
+    <a href="#" title="classic" onclick="choose(this.title)" class="list-group-item list-group-item-action">→ Classic theme</a>
+    <a href="#" title="hacker" onclick="choose(this.title)" class="list-group-item list-group-item-action">→ Hacker theme</a>
+    <a href="#" title="blue" onclick="choose(this.title)" class="list-group-item list-group-item-action">→ Blue theme</a>
+    <a href="#" title="fancy" onclick="choose(this.title)" class="list-group-item list-group-item-action">→ Fancy theme</a>
+  </div>
+  </div>`;
+  let themeDiv = document.createElement("div");
+  themeDiv.classList.add("themeDiv", "hide-print");
+  themeDiv.innerHTML=tmpDiv;
+  document.body.insertBefore(themeDiv, mainSection);
+  document.body.style.backgroundColor="#111";
+  document.body.style.color="#111";
+  themeDiv.focus();
+  
+  choose=(title)=>{
+  
+    switch (title) {
+      case "classic":
+        mainSection.classList.add("theme-classic");
+        document.body.style.backgroundColor="#222";
+        break;
+  
+      case "hacker":
+        mainSection.classList.add("theme-hacker");
+        document.body.style.backgroundColor="#111";
+        document.body.style.backgroundImage = "url('https://i.ytimg.com/vi/D_OPcPXlI7g/maxresdefault.jpg')";   
+  
+        break;
+      case "blue":
+        mainSection.classList.add("theme-blue");
+        document.body.style.backgroundColor="#222";
+        break;
+  
+      case "fancy":
+        mainSection.classList.add("theme-fancy");
+        document.body.style.backgroundColor="#222";
+        break;
+  
+    }
+    document.body.removeChild(themeDiv);
 
-choose=(title)=>{
-
-  switch (title) {
-    case "classic":
-      mainSection.classList.add("theme-classic");
-      document.body.style.backgroundColor="#222";
-      break;
-
-    case "hacker":
-      mainSection.classList.add("theme-hacker");
-      document.body.style.backgroundColor="#111";
-      document.body.style.backgroundImage = "url('https://i.ytimg.com/vi/D_OPcPXlI7g/maxresdefault.jpg')";   
-
-      break;
-    case "blue":
-      mainSection.classList.add("theme-blue");
-      document.body.style.backgroundColor="#222";
-      break;
-
-    case "fancy":
-      mainSection.classList.add("theme-fancy");
-      document.body.style.backgroundColor="#333";
-      break;
+    let fixedmenu = document.createElement("div"); 
+    fixedmenu.classList.add("container","hide-print","fixedmenu", "col-md-12", "col-sm-8" , "col-8")
+    fixedmenu.innerHTML=`    
+    <div class="row p-2 justify-content-center">
+        <button class="btn btn-dark p-2 m-2" onclick="location.reload()">Change theme</button>
+        <button class="btn btn-dark p-2 m-2" onclick="downloadpdf()">Download</button>
+    </div>`;
+    document.body.appendChild(fixedmenu);
+  }
 
   }
-  mainSection.removeChild(themeDiv);
-  
 }
+chooseTheme();
 
 
-
-
-}
 
 //==================================================//
 
@@ -185,9 +202,11 @@ if(technology){
 
 
 //======================================//
-mainSection.appendChild(personalData);
-mainSection.appendChild(workExp);
-mainSection.appendChild(Skills);
+if(print){
+  mainSection.appendChild(personalData);
+  mainSection.appendChild(workExp);
+  mainSection.appendChild(Skills);
+}
 
 
 

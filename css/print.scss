@@ -7,6 +7,15 @@ $padding: 1%;
 $font1: 'Russo One', sans-serif;
 $font2: 'Oswald', sans-serif;
 
+//===========================//
+
+@media print {
+
+    .hide-print {
+      display: none;
+    }
+  }
+
 
 //===========================//
 
@@ -28,15 +37,28 @@ $font2: 'Oswald', sans-serif;
 
 }
 
+@keyframes appear{
+    from{
+        background-color: #111;
+        width: 30px;
+    }
+    to{
+        background-color: #333;
+    }
+}
+
 //===========================//
 .themeDiv{
+    position: sticky;
     font-family: $font1;
     border-radius: 4px;
-    width: 80%;
+    width: 100%;
     height: auto;
     color: white;
     position: fixed;
 
+    animation-name: appear;
+    animation-duration: 2s;
     background-color: #333;
     z-index: 100;
 
@@ -45,6 +67,16 @@ $font2: 'Oswald', sans-serif;
         color: white;
         background-color: #333;
     }
+
+}
+.fixedmenu{
+    font-family: $font1;
+    border-radius: 4px;
+    height: auto;
+    color: white;
+    position: sticky;
+    background-color: transparent;
+    z-index: 10000;
 
 }
 //===========================//
@@ -107,4 +139,19 @@ $font2: 'Oswald', sans-serif;
     }
 }
 .theme-fancy{
+    h1,h2{
+        font-family: $font1;
+        color: white;
+    }
+
+    .printDiv{
+        font-size: 20px;
+        background-color: #111;
+        color: rgb(194, 194, 29);
+        font-family: $font2;
+    }
+
+    .separator{
+        background-color: #222;
+    }
 }
